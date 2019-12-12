@@ -45,7 +45,7 @@ public class ShapeCollectorTestSuite {
     }
 
     @Test
-    public void testShowFigures() {
+    public void testShowFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape shape = new Square(8);
