@@ -7,8 +7,12 @@ public class ShapeCollector {
 
     private ArrayList<Shape> figures = new ArrayList<Shape>();
 
+    public ArrayList<Shape> getFigures() {
+        return figures;
+    }
+
     public void addFigure(Shape shape) {
-        return figures.add(shape);
+        figures.add(shape);
 
     }
 
@@ -17,12 +21,8 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int n) {
-        //nie wiem jak ?
         return figures.get(n);
     }
 
-    public void showFigure(){
-        System.out.println(figures.toString());
-    }
 
 }

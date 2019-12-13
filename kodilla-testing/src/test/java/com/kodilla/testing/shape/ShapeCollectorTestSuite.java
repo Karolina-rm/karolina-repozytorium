@@ -22,13 +22,13 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Square(2)
+        Shape shape = new Square(2);
         //When
         shapeCollector.addFigure(shape);
         boolean result = shapeCollector.removeFigure(shape);
         //Then
         Assert.assertTrue(result);
-        Assert.assertEquals(0, shapeCollector.getFigure().size());
+        Assert.assertEquals(0, shapeCollector.getFigures().size());
     }
 
     @Test
@@ -43,24 +43,4 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(shape, result);
 
     }
-
-    @Test
-    public void testShowFigure() {
-        //Given
-        ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape = new Square(8);
-        //When
-        shapeCollector.addFigure(shape);
-        ArrayList<Shape> newList = new ArrayList<Shape>();
-        newList.add(shape);
-        //Then
-        Assert.assertEquals(newList.toString(), shapeCollector.toString());
-
-
-    }
-
-
-
-
-
 }
