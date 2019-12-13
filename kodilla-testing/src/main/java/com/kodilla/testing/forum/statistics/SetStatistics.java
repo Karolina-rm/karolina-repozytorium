@@ -2,6 +2,7 @@ package com.kodilla.testing.forum.statistics;
 
 public class SetStatistics {
 
+
     private static int quantityOfUsers;
     private static int quantityOfPosts;
     private static int quantityOfComments;

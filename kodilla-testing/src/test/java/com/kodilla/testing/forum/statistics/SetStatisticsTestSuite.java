@@ -1,6 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 
 import org.junit.Assert;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.when;
