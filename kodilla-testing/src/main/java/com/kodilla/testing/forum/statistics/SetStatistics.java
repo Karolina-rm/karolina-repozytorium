@@ -3,12 +3,12 @@ package com.kodilla.testing.forum.statistics;
 public class SetStatistics {
 
 
-    private static int quantityOfUsers;
-    private static int quantityOfPosts;
-    private static int quantityOfComments;
-    private static double averagePostsPerUser;
-    private static double averageCommentsPerUser;
-    private static double averageCommentsPerPost;
+    private int quantityOfUsers;
+    private int quantityOfPosts;
+    private int quantityOfComments;
+    private double averagePostsPerUser;
+    private double averageCommentsPerUser;
+    private double averageCommentsPerPost;
 
 
     public int getQuantityOfUsers() {
@@ -35,19 +35,19 @@ public class SetStatistics {
         return averageCommentsPerPost;
     }
 
-    public static double calculateAveragePostsPerUser() {
+    private double calculateAveragePostsPerUser() {
         return (double)quantityOfPosts/quantityOfUsers;
     }
 
-    public static double calculateAverageCommentsPerUser() {
+    private double calculateAverageCommentsPerUser() {
         return (double)quantityOfComments/quantityOfUsers;
     }
 
-    public static double calculateAverageCommentsPerPost() {
+    private double calculateAverageCommentsPerPost() {
         return (double)quantityOfComments/quantityOfPosts;
     }
 
-    public static void calculateAdvStatistics(Statistics statistics) {
+    public void calculateAdvStatistics(Statistics statistics) {
         quantityOfUsers = statistics.usersNames().size();
         quantityOfPosts = statistics.postsCount();
         quantityOfComments = statistics.commentsCount();
