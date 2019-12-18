@@ -19,7 +19,6 @@ public class SetStatisticsTestSuite {
     public void beforeCheck() {
         statisticsMock = mock(Statistics.class);
         ArrayList<String> listOfUsers = new ArrayList<String>();
-
         when(statisticsMock.postsCount()).thenReturn(3);
         when(statisticsMock.commentsCount()).thenReturn(3);
         when(statisticsMock.usersNames()).thenReturn(listOfUsers);

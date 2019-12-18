@@ -11,6 +11,7 @@ public class SetStatistics {
     private double averageCommentsPerPost;
 
 
+
     public int getQuantityOfUsers() {
         return quantityOfUsers;
     }
