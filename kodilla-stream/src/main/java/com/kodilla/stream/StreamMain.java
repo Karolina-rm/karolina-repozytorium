@@ -1,39 +1,34 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+        BookDirectory theBookDirectory = new BookDirectory();
+        String theResultStringOfBooks = theBookDirectory.getList().stream()
+                .filter(book -> book.getYearOfPublication() > 2005)
+                .map(Book::toString)
+                .collect(Collectors.joining(",\n","<<",">>"));
 
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+        System.out.println(theResultStringOfBooks);
 
+        Forum forum = new Forum();
+        Map<Integer, ForumUser> mapOfForumUsers = forum.getForumUserList().stream()
+                .filter(forumUser -> forumUser.getSex()=='M')
+                .filter(forumUser->Period.between(forumUser.getBirthdayDate(), LocalDate.now()).getYears()>=20)
+                .filter(forumUser -> forumUser.getQuantityOfPosts()>=1)
+                .collect(Collectors.toMap(ForumUser::getID, ForumUser -> ForumUser));
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        String beauty1 = poemBeautifier.beautify("Sample text", (description -> description.toUpperCase()));
-        System.out.println(beauty1);
-
-        String beauty2 = poemBeautifier.beautify("Sample text", (description -> "ABC" + description + "ABC"));
-        System.out.println(beauty2);
-
-        String beauty3 = poemBeautifier.beautify("Sample text", (description -> description.replace(" ", "+")));
-        System.out.println(beauty3);
-
-        String beauty4 = poemBeautifier.beautify("Sample text", (description -> description.concat("Yes")));
-        System.out.println(beauty4);
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
-
-
-
-
-
+        mapOfForumUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": "+ entry.getValue())
+                .forEach(System.out::println);
     }
 }
-
