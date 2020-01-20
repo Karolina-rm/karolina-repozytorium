@@ -2,8 +2,7 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.Assert;
 import org.junit.Test;
-import java.time.LocalDate;
-import java.time.Period;
+import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -147,18 +146,25 @@ public class BoardTestSuite {
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
 
-        int sum = project.getTaskLists().stream()
+        int sum1 = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(task -> Period.between(task.getCreated(), LocalDate.now().getDays())
-
-
-
+                .map(task -> Period.between(task.getCreated(), LocalDate.now()))
+                .map(period -> period.getDays())
+                .reduce(0, (sum, current)->sum+=current);
 
         int quantity = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(task -> Period.between(task.getCreated(), LocalDate.now().getDays())
+                .map(task -> Period.between(task.getCreated(), LocalDate.now()))
+                .map(period -> period.getDays())
+                .map(q ->1)
+                .reduce(0, (sum, current)->sum+=current);
+
+        double average = sum1/quantity;
+
+        //Then
+        Assert.assertEquals(10, average, 0.01);
 
     }
 }
