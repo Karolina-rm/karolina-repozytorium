@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class FlightScanner {
 
-    private HashMap<String,Boolean> getAirportSearching;
 
     public void findFlight(Flight flight) throws RouteNotFoundException {
 
@@ -17,15 +16,12 @@ public class FlightScanner {
         airportSearching.put("Wenecja", false);
         airportSearching.put("Moskwa", false);
 
-        if ("co?") {
-
+        if (airportSearching.get(flight.getArrivalAirport()) &&
+                airportSearching.get(flight.getDepartureAirport())) {
+            System.out.println("The airport is in the base.");
+        } else {
+            throw new RouteNotFoundException();
         }
-
-
-    } else {
-
-        throw new RouteNotFoundException("Object not found!");
     }
-
 
 }
