@@ -16,12 +16,15 @@ public class FlightScanner {
         airportSearching.put("Wenecja", false);
         airportSearching.put("Moskwa", false);
 
-        if (airportSearching.get(flight.getArrivalAirport()) &&
-                airportSearching.get(flight.getDepartureAirport())) {
-            System.out.println("The airport is in the base.");
+        if (airportSearching.containsKey(flight.getArrivalAirport())) {
+            if (airportSearching.get(flight.getArrivalAirport())) {
+                System.out.println("The airport is in the base.");
+            } else {
+                System.out.println("The flight is not available");
+            }
+
         } else {
             throw new RouteNotFoundException();
         }
     }
-
 }
