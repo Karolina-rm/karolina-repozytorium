@@ -20,8 +20,6 @@ public class Button extends javafx.scene.control.Button {
     private final Image imageBeforeClick = new Image(getClass().getResource("/blue_button00.png").toExternalForm());
     private final Image imageAfterClick = new Image(getClass().getResource("/blue_button02.png").toExternalForm());
     private final String FONT_PATH = "kenvector_future_thin.ttf";
-    private final String PRESSED_BUTTON = "-fx-background-color: transparent; -fx-background-image: url('blue_button02.png');";
-    private final String UNPRESSED_BUTTON = "-fx-background-color: transparent; -fx-background-image: url('blue_button00.png');";
 
     public Button(String text) {
 
@@ -50,11 +48,11 @@ public class Button extends javafx.scene.control.Button {
         }
     }
 
-    private void setUnpressedButtonStyle() {
-        setStyle(UNPRESSED_BUTTON);
-        setPrefHeight(40);
-        setLayoutY(getLayoutY() - 4);
-    }
+//    private void setUnpressedButtonStyle() {
+//        setStyle(UNPRESSED_BUTTON);
+//        setPrefHeight(40);
+//        setLayoutY(getLayoutY() - 4);
+//    }
 
     private void setPressedButtonStyle() {
 
@@ -83,14 +81,14 @@ public class Button extends javafx.scene.control.Button {
             }
         });
 
-        setOnMouseReleased(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton().equals(MouseButton.PRIMARY)) {
-                    setUnpressedButtonStyle();
-                }
-            }
-        });
+//        setOnMouseReleased(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
+//                if (event.getButton().equals(MouseButton.PRIMARY)) {
+//                    setUnpressedButtonStyle();
+//                }
+//            }
+//        });
 
         setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
