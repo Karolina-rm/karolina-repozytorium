@@ -4,11 +4,12 @@ public class FlightRunner {
     public static void main(String[] args) {
 
 
-        Flight barToMos = new Flight("Barcelona", "Moskwa");
-        FlightScanner barToMosScanner = new FlightScanner();
+        Flight mosToBar = new Flight("Wenecja", "Moskwa");
+        FlightScanner mosToBarScanner = new FlightScanner();
 
         try {
-            barToMosScanner.findFlight(barToMos);
+            mosToBarScanner.findFlight(mosToBar);
+            System.out.println("The flight is available!");
         } catch (RouteNotFoundException r) {
             System.out.println("There is no such flight!");
         } finally {
@@ -20,6 +21,7 @@ public class FlightRunner {
 
         try {
             barToLonScanner.findFlight(barToLon);
+            System.out.println("The flight is available!");
         } catch (RouteNotFoundException r) {
             System.out.println("There is no such flight!");
         } finally {
@@ -31,6 +33,7 @@ public class FlightRunner {
 
         try {
             barToMadScanner.findFlight(barToMad);
+            System.out.println("The flight is available!");
         } catch (RouteNotFoundException r) {
             System.out.println("There is no such flight!");
         } finally {
@@ -39,18 +42,5 @@ public class FlightRunner {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-    /*
-        Flight kraToLon = new Flight ("Krakow", "Londyn");
-        Flight amsToWen = new Flight ("Amsterdam", "Wenecja");*/
 
 
